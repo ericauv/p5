@@ -1,14 +1,13 @@
-const height = window.innerHeight;
-const width = window.innerWidth;
-
 function setup() {
+    height = window.innerHeight;
+    width = window.innerWidth;
     createCanvas(width, height);
-}
-
-function draw() {
-    background(220);
-    Grid(height/9, width/9);
+  }
+  
+  function draw() {
     
+    background(220);
+    Grid();
     push();
     noFill()
     beginShape();
