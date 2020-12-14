@@ -1,4 +1,5 @@
 function RandomBezierShape(intervalCount = 2, withText = false){
+  push()
   const variance = width/4; 
   const spacing = 360/intervalCount;
   let x;
@@ -35,4 +36,5 @@ function RandomBezierShape(intervalCount = 2, withText = false){
     })
     pop();
   }
+  pop();
 }
