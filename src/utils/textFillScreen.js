@@ -8,7 +8,8 @@ function TextFillScreen(str = 'text', alternateInterval = 0, alternateStyle = ()
             alternateStyle();
             text(str, width / 2, i * height / intervals);
             pop();
+        }else{
+            text(str, width / 2, i * height / intervals);
         }
-        text(str, width / 2, i * height / intervals);
     }
 }
