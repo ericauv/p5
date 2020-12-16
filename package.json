@@ -11,6 +11,8 @@
     "version": "0.9.1",
     "dependencies": {
         "@types/p5": "^0.9.1",
+        "ccapture.js": "^1.1.0",
+        "ffmpeg": "0.0.4",
         "p5": "^1.1.9",
         "prettier": "^2.2.1"
     }
