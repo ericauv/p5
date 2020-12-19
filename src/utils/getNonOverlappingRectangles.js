@@ -17,17 +17,17 @@ function overlapRectangle(x1, y1, w1, h1, x2, y2, w2, h2, mode = 'bool'){
     }
   }
   
-  function getRectangle(vertexX, vertexY, gridX, gridY, rectangles = []){
+  function getRectangle(vertexX, vertexY, gridX, gridY, maxX, maxY, rectangles = []){
     let rectWidth = gridX * round(random(1, gridCountX));
     let rectHeight = gridY * round(random(1, gridCountY));
   
-    // don't allow rectangle to go outside canvas x bound
-    while(vertexX + rectWidth > width){
+    // don't allow rectangle to go outside x bound
+    while(vertexX + rectWidth > maxX){
       rectWidth -= gridX;
     }
     
-    // don't allow rectangle to go outside canvas y bound
-    while(vertexY + rectHeight > height){
+    // don't allow rectangle to go outside y bound
+    while(vertexY + rectHeight > maxY){
       rectHeight -= gridY;
     }
   
@@ -66,7 +66,24 @@ function overlapRectangle(x1, y1, w1, h1, x2, y2, w2, h2, mode = 'bool'){
     ]
   }
   
-  function GetNonOverlappingRectangles(gridX, gridY){
+
+    /**
+     * @typedef {Object} Rectangle
+     * @property {number} x - The X Coordinate of the origin
+     * @property {number} y - The Y Coordinate of the origin
+     * @property {number} w - The width
+     * @property {number} h - The height
+     */
+
+    /**
+     * Applies no fill style with a stroke with passed color and weight
+     * @param {Number} gridX - The width of one unit in the grid
+     * @param {Number} gridY - The height of one unit in the grid
+     * @param {Number} [maxX]  - The upper x bound for rectangles (rectangles will always be within this bound)
+     * @param {Number} [maxY] - The upper y bound for rectangles (rectangles will always be within this bound)
+     * @return {Rectangle[]} - an array of rectangle parameters {x, y, w, h}
+     */
+  function GetNonOverlappingRectangles(gridX, gridY, maxX = width, maxY = height){
     const availableVertices = [{x: 0, y:0}];
     rectangles = [];
   
@@ -75,7 +92,7 @@ function overlapRectangle(x1, y1, w1, h1, x2, y2, w2, h2, mode = 'bool'){
       const vertexX = availableVertices[availableVertices.length - 1].x;
       const vertexY = availableVertices[availableVertices.length - 1].y;
       
-      const newRectangle = getRectangle(vertexX, vertexY, gridX, gridY, rectangles);
+      const newRectangle = getRectangle(vertexX, vertexY, gridX, gridY, maxX, maxY, rectangles);
   
       // remove current vertex from available vertices, now that we have gotten its rectangle
       availableVertices.pop();
