@@ -10,7 +10,7 @@
  * @param {Font} fontBold The font to use for the title (Default: Arial)
  * @param {Font} fontRegular The font to use for the items in the list (Default: Arial)
  */
-function NutritionalFacts(ingredients = [{title:'title', value:'value'}], x, y, gridX = width / 9, gridY = height / 9, fontBold = 'Arial', fontRegular = 'Arial'){
+function NutritionalFacts(ingredients = [{title:'title', value:'value'}], x = 0, y = 0, gridX = width / 9, gridY = height / 9, fontBold = 'Arial', fontRegular = 'Arial'){
     const setupLayoutVariables = () => {
       const subgridX = gridX / 3;
       const subgridY = gridY / 3;
