@@ -18,8 +18,8 @@ function overlapRectangle(x1, y1, w1, h1, x2, y2, w2, h2, mode = 'bool'){
   }
   
   function getRectangle(vertexX, vertexY, gridX, gridY, maxX, maxY, rectangles = []){
-    let rectWidth = gridX * round(random(1, gridCountX));
-    let rectHeight = gridY * round(random(1, gridCountY));
+    let rectWidth = gridX * round(random(1, maxX / gridX));
+    let rectHeight = gridY * round(random(1, maxY / gridY));
   
     // don't allow rectangle to go outside x bound
     while(vertexX + rectWidth > maxX){
