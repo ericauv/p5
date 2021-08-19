@@ -13,7 +13,7 @@ const format = 'png'
 const framerate = 60;
 
 // how long to capture for (maximum)
-const timeLimit = 10;
+const timeLimit = 30;
 
 // how often to save capture
 const autoSaveTime = timeLimit;
@@ -27,9 +27,20 @@ const capturer = new CCapture({
     autoSaveTime,
 });
 
+// add global variables for sketch here
+
+
+
+
+
+
+// preload for sketch goes here
+
 function setup() {
+  // setup for sketch goes here
+
+
   createCanvas(width, height);
- 
 }
 
 function draw() {
